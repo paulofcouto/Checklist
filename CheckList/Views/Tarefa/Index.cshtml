@@ -2,34 +2,34 @@
     ViewData["Title"] = "Tarefas";
 }
 
-@* <script src="../Views/Tarefa/js/Tarefa.js"></script> *@
+<script src="../Views/Tarefa/js/Tarefa.js"></script>
 
 
 <script>
     //import { meuMetodo } from '../Tarefa/js/Tarefa.js';
 
-    function obterTarefas() {
-        fetch('/Tarefa/ObterTarefas')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro ao obter as tarefas');
-                }
-
-                return response.json();
-            })
-            .then(data => {
-                // Manipulando os dados recebidos
-                console.log('Tarefas:', data);
-                // Aqui você pode fazer o que quiser com os dados, como exibir em uma lista na página
-            })
-            .catch(error => {
-                // Capturando e tratando erros
-                console.error('Erro:', error);
-            });
-    }
+    //function obterTarefas() {
+    //    fetch('/Tarefa/ObterTarefas')
+    //        .then(response => {
+    //            if (!response.ok) {
+    //                throw new Error('Erro ao obter as tarefas');
+    //            }
+    //
+    //            return response.json();
+    //        })
+    //        .then(data => {
+    //            // Manipulando os dados recebidos
+    //            console.log('Tarefas:', data);
+    //            // Aqui você pode fazer o que quiser com os dados, como exibir em uma lista na página
+    //        })
+    //        .catch(error => {
+    //            // Capturando e tratando erros
+    //            console.error('Erro:', error);
+    //        });
+    //}
 </script>
 
-<button onclick="obterTarefas()">Clique aqui</button>
+<button onclick="meuMetodo()">Clique aqui</button>
 
 <table class="table table-striped table-hover">
     <thead>

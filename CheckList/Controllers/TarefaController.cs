@@ -13,8 +13,7 @@ namespace CheckList.Controllers
         [HttpGet]
         public IActionResult ObterTarefas([FromServices] TarefaRepository tarefa)
         {
-            var teste = tarefa.ObterTodas().ToList();
-            return Json(teste);
+            return Json(tarefa.ObterTodas());
         }
 
         [HttpPost]
