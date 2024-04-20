@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CheckList")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4608b0f7ab6666e6d7796aee3109efd70177b9ed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c3e34f4d3cc7132af0b2ec484da301df57e16ac")]
 [assembly: System.Reflection.AssemblyProductAttribute("CheckList")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CheckList")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
