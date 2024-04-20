@@ -3,10 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CheckList.Models.Entities
 {
-    public class Tarefa
+    public class TarefaModel
     {
         public int Id { get; set; }
-        public required string Nome { get; set; }
+        public required string Descricao { get; set; }
         public bool StatusConcluido { get; set; }
     }
 }

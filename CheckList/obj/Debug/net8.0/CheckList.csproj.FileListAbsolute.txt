@@ -102,3 +102,4 @@ C:\Projetos\entrevista\CheckList\CheckList\bin\Debug\net8.0\zh-Hant\Microsoft.Co
 C:\Projetos\entrevista\CheckList\CheckList\obj\Debug\net8.0\CheckList.csproj.Up2Date
 C:\Projetos\entrevista\CheckList\CheckList\bin\Debug\net8.0\MySqlConnector.dll
 C:\Projetos\entrevista\CheckList\CheckList\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Projetos\entrevista\Checklist\CheckList\obj\Debug\net8.0\CheckList.sourcelink.json

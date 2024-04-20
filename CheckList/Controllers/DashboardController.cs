@@ -5,31 +5,24 @@ using System.Diagnostics;
 
 namespace CheckList.Controllers
 {
-    public class HomeController : Controller
+    public class DashboardController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<DashboardController> _logger;
 
 
-        public HomeController(ILogger<HomeController> logger)
+        public DashboardController(ILogger<DashboardController> logger)
         {
             _logger = logger;
         }
 
-        [HttpGet]
-        public IActionResult Index([FromServices] TarefaRepository tarefa)
+        public IActionResult Index()
         {
-            return View(tarefa.GetAll());
+            return View();
         }
 
         public IActionResult Privacy()
         {
             return View();
-        }
-
-        public IActionResult Adicionar([FromServices] TarefaRepository tarefa)
-        {
-            var teste = tarefa.GetAll();
-            return View(teste);
         }
 
 

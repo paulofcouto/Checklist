@@ -18,12 +18,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Projetos\entrevista\Checklist\CheckList
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Projetos/entrevista/Checklist/CheckList/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Projetos/entrevista/Checklist/CheckList/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projetos/entrevista/Checklist/CheckList/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Projetos/entrevista/Checklist/CheckList/Views/Dashboard/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFByaXZhY3kuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projetos/entrevista/Checklist/CheckList/Views/Shared/Error.cshtml]
@@ -32,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Projetos/entrevista/Checklist/CheckList/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projetos/entrevista/Checklist/CheckList/Views/Tarefa/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFyZWZhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projetos/entrevista/Checklist/CheckList/Views/_ViewImports.cshtml]
