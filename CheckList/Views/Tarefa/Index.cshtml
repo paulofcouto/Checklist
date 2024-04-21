@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Descrição</th>
+            <th id="titulo-descricao" scope="col">Descrição</th>
             <th id="titulo-status" scope="col">Status</th>
             <th id="titulo-excluir" scope="col">Excluir</th>
         </tr>
@@ -33,7 +33,7 @@
         objetos.forEach(obj => {
             var row = "<tr>" +
                 "<td>" + numeroIndice + "</td>" +
-                "<td>" + obj.descricao + "</td>" +
+                "<td id='coluna-descricao'>" + obj.descricao + "</td>" +
                 "<td id='coluna-status'><div class='dropdown'>" +
                 "<button class='btn dropdown-toggle " + getClass(obj.statusConcluido) + "' onclick='toggleDropdown(" + obj.id + ")' type='button' id='dropdownMenuButton-" + obj.id + "' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>" +
                 (obj.statusConcluido ? "Concluído" : "A fazer") +
@@ -81,25 +81,33 @@
     }
 
     function editarStatus(id, statusConcluido) {
-        var tarefa = objetos.find(obj => obj.id === id);
-        tarefa.statusConcluido = statusConcluido;
 
-        fetch('/Tarefa/AtualizarTarefa/' + id, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(tarefa)
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro ao atualizar a tarefa');
-                }
-                preencherTabela();
+        console.log("teste");
+        var tarefa = objetos.find(obj => obj.id === id);
+
+        if (tarefa.statusConcluido != statusConcluido) {
+            tarefa.statusConcluido = statusConcluido;
+
+            fetch('/Tarefa/AtualizarTarefa/' + id, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(tarefa)
             })
-            .catch(error => {
-                console.error('Erro:', error);
-            });
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao atualizar a tarefa');
+                    }
+                    preencherTabela();
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+        }
+        else {
+            preencherTabela();
+        }
     }
 
     function getClass(statusConcluido) {
@@ -214,5 +222,7 @@
         color: red;
     }
 
-
+    #coluna-descricao, #titulo-descricao {
+        width: 60%;
+    }
 </style>
