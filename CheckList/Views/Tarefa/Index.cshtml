@@ -88,7 +88,7 @@
         if (tarefa.statusConcluido != statusConcluido) {
             tarefa.statusConcluido = statusConcluido;
 
-            fetch('/Tarefa/AtualizarTarefa/' + id, {
+            fetch('/Tarefa/AtualizarStatusTarefa/' + id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -219,7 +219,8 @@
     }
 
     #coluna-excluir:hover {
-        color: red;
+            color: red;
+            cursor: pointer;
     }
 
     #coluna-descricao, #titulo-descricao {

@@ -1,42 +1,49 @@
-﻿using CheckList.Infrastructure.MySql;
-using CheckList.Models.Entities;
+﻿using CheckList.Application.Services;
+using CheckList.Models.TarefaViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace CheckList.Controllers
 {
     public class TarefaController : Controller
     {
+        private readonly TarefaService _tarefaService;
+
+        public TarefaController(TarefaService tarefaService)
+        {
+            _tarefaService = tarefaService;
+        }
+
         public IActionResult Index()
         {
             return View();
         }
 
         [HttpGet]
-        public IActionResult ObterTarefas([FromServices] TarefaRepository tarefa)
+        public IActionResult ObterTarefas()
         {
-            return Json(tarefa.ObterTodas());
+            var tarefas = _tarefaService.ObterTarefas();
+            return Json(tarefas);
         }
 
         [HttpPost]
-        public IActionResult AdicionarTarefa([FromServices] TarefaRepository tarefa, [FromBody] TarefaViewModel novaTarefa)
+        public IActionResult AdicionarTarefa([FromBody] TarefaViewModel tarefaViewModel)
         {
-            tarefa.Adicionar(new Models.Entities.TarefaModel { Descricao = novaTarefa.Descricao });
+            _tarefaService.AdicionarTarefa(tarefaViewModel);
             return Ok();
         }
-
+        
         [HttpDelete]
-        public IActionResult ExcluirTarefa([FromServices] TarefaRepository tarefa, int id)
+        public IActionResult ExcluirTarefa(int id)
         {
-            tarefa.Deletar(id);
+            _tarefaService.DeletarTarefa(id);
             return Ok();
         }
-
+        
         [HttpPut]
-        public IActionResult AtualizarTarefa([FromServices] TarefaRepository tarefa, int id)
+        public IActionResult AtualizarStatusTarefa(int id)
         {
-            tarefa.AtualizarStatus(id);
-
+            _tarefaService.AtualizarStatusTarefa(id);
+        
             return Ok();
         }
     }

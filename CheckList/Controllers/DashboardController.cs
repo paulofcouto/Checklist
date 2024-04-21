@@ -1,3 +1,4 @@
+using CheckList.Application.Services;
 using CheckList.Infrastructure;
 using CheckList.Infrastructure.MySql;
 using CheckList.Models;
@@ -9,11 +10,13 @@ namespace CheckList.Controllers
     public class DashboardController : Controller
     {
         private readonly ILogger<DashboardController> _logger;
+        private readonly TarefaService _tarefaService;
 
 
-        public DashboardController(ILogger<DashboardController> logger)
+        public DashboardController(ILogger<DashboardController> logger, TarefaService tarefaService)
         {
             _logger = logger;
+            _tarefaService = tarefaService;
         }
 
         public IActionResult Index()
@@ -22,9 +25,9 @@ namespace CheckList.Controllers
         }
 
         [HttpGet]
-        public IActionResult ObterQtdTarefas([FromServices] TarefaRepository tarefa)
+        public IActionResult ObterQtdTarefas()
         {
-            var qtdTarefas = tarefa.ObterTodas().Count();
+            var qtdTarefas = _tarefaService.ObterQdtTarefas();
             return Json(qtdTarefas);
         }
 

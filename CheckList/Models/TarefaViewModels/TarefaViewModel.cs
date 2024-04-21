@@ -1,4 +1,4 @@
-﻿namespace CheckList.Models.Entities
+﻿namespace CheckList.Models.TarefaViewModels
 {
     public class TarefaViewModel
     {

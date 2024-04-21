@@ -1,4 +1,4 @@
-﻿using CheckList.Models.Entities;
+﻿using CheckList.Application.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CheckList.Infrastructure.MySql

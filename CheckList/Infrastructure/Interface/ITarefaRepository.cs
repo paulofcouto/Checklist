@@ -1,4 +1,4 @@
-﻿using CheckList.Models.Entities;
+﻿using CheckList.Application.Entities;
 
 namespace CheckList.Infrastructure.Interface
 {
@@ -7,7 +7,7 @@ namespace CheckList.Infrastructure.Interface
         IEnumerable<TarefaModel> ObterTodas();
         TarefaModel? ObterPorId(int id);
         void Adicionar(TarefaModel tarefa);
-        void AtualizarStatus(int Id);
         void Deletar(int id);
+        void Atualizar(int id);
     }
 }

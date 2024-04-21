@@ -1,3 +1,4 @@
+using CheckList.Application.Services;
 using CheckList.Infrastructure.MySql;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<TarefaService>();
 builder.Services.AddScoped<TarefaRepository>();
 
 //Injetando configuração do MySql

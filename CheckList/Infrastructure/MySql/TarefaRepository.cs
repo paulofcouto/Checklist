@@ -1,48 +1,51 @@
-﻿using CheckList.Models.Entities;
+﻿using CheckList.Application.Entities;
+using CheckList.Infrastructure.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace CheckList.Infrastructure.MySql
 {
-    public class TarefaRepository
+    public class TarefaRepository : ITarefaRepository
     {
-        private readonly ChecklistDbContext _bdMySql;
+        private readonly ChecklistDbContext _context;
 
         public TarefaRepository(ChecklistDbContext context)
         {
-            _bdMySql = context;
+            _context = context;
         }
 
         public IEnumerable<TarefaModel> ObterTodas()
         {
-            return _bdMySql.Tarefa;
+            return _context.Tarefa.ToList();
         }
 
         public TarefaModel? ObterPorId(int id)
         {
-            return _bdMySql.Tarefa.Find(id);
+            return _context.Tarefa.FirstOrDefault(t => t.Id == id);
         }
 
         public void Adicionar(TarefaModel tarefa)
         {
-            _bdMySql.Tarefa.Add(tarefa);
-            _bdMySql.SaveChanges();
-        }
-
-        public void AtualizarStatus(int id)
-        {
-            var tarefa = ObterPorId(id);
-            tarefa.StatusConcluido = !tarefa.StatusConcluido;
-            _bdMySql.Tarefa.Update(tarefa);
-            _bdMySql.SaveChanges();
+            _context.Tarefa.Add(tarefa);
+            _context.SaveChanges();
         }
 
         public void Deletar(int id)
         {
-            var tarefa = ObterPorId(id);
-            if (tarefa != null)
+            var tarefa = _context.Tarefa.Find(id);
+
+            if (tarefa == null)
             {
-                _bdMySql.Tarefa.Remove(tarefa);
-                _bdMySql.SaveChanges();
+                throw new KeyNotFoundException($"Tarefa não encontrada.");
             }
+
+            _context.Tarefa.Remove(tarefa);
+            _context.SaveChanges();
+        }
+
+        public void Atualizar(TarefaModel tarefa)
+        {
+            _context.Entry(tarefa).State = EntityState.Modified;
+            _context.SaveChanges();
         }
     }
 }
