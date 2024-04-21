@@ -1,5 +1,7 @@
 ﻿using CheckList.Infrastructure.MySql;
+using CheckList.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CheckList.Controllers
 {
@@ -17,21 +19,25 @@ namespace CheckList.Controllers
         }
 
         [HttpPost]
-        public IActionResult Adicionar([FromServices] TarefaRepository tarefa)
+        public IActionResult AdicionarTarefa([FromServices] TarefaRepository tarefa, [FromBody] TarefaViewModel novaTarefa)
         {
-            return View();
+            tarefa.Adicionar(new Models.Entities.TarefaModel { Descricao = novaTarefa.Descricao });
+            return Ok();
         }
 
         [HttpDelete]
-        public IActionResult Detelar([FromServices] TarefaRepository tarefa)
+        public IActionResult ExcluirTarefa([FromServices] TarefaRepository tarefa, int id)
         {
-            return View();
+            tarefa.Deletar(id);
+            return Ok();
         }
 
         [HttpPut]
-        public IActionResult Alterar([FromServices] TarefaRepository tarefa)
+        public IActionResult AtualizarTarefa([FromServices] TarefaRepository tarefa, int id)
         {
-            return View();
+            tarefa.AtualizarStatus(id);
+
+            return Ok();
         }
     }
 }

@@ -27,8 +27,10 @@ namespace CheckList.Infrastructure.MySql
             _bdMySql.SaveChanges();
         }
 
-        public void Atualizar(TarefaModel tarefa)
+        public void AtualizarStatus(int id)
         {
+            var tarefa = ObterPorId(id);
+            tarefa.StatusConcluido = !tarefa.StatusConcluido;
             _bdMySql.Tarefa.Update(tarefa);
             _bdMySql.SaveChanges();
         }
