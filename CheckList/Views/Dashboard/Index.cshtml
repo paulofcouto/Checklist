@@ -3,6 +3,34 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Bem vindo ao controle de tarefas</h1>
-    <p>Você tem X tarefas, clique aqui e saiba mais</p>
+    <h2 class="display-4">Bem-vindo ao seu <a style="font-weight: initial">Checklist</a></h2>
+    <p>Você tem <a style="font-weight: bold" id="qtd-tarefas"></a> tarefas, <a href="/Tarefa">clique aqui</a> e saiba mais!</p>
 </div>
+
+<script>
+    var qtdTarefas = 0;
+
+    function obterTarefas() {
+
+        console.log("teste");
+
+        fetch('/Dashboard/ObterQtdTarefas')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao obter as tarefas');
+                }
+
+                return response.json();
+            })
+            .then(data => {
+                qtdTarefas = data;
+
+                document.getElementById("qtd-tarefas").textContent = `${qtdTarefas}`;
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+    }
+
+    obterTarefas();
+</script>

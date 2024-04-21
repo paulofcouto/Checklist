@@ -14,8 +14,8 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Descrição</th>
-            <th scope="col">Status</th>
-            <th scope="col">Excluir</th>
+            <th id="titulo-status" scope="col">Status</th>
+            <th id="titulo-excluir" scope="col">Excluir</th>
         </tr>
     </thead>
     <tbody class="table-group-divider" id="corpo-tabela">
@@ -27,11 +27,14 @@
 
     function preencherTabela() {
         document.getElementById("corpo-tabela").innerHTML = "";
+
+        var numeroIndice = 1;
+
         objetos.forEach(obj => {
             var row = "<tr>" +
-                "<td>" + obj.id + "</td>" +
+                "<td>" + numeroIndice + "</td>" +
                 "<td>" + obj.descricao + "</td>" +
-                "<td><div class='dropdown'>" +
+                "<td id='coluna-status'><div class='dropdown'>" +
                 "<button class='btn dropdown-toggle " + getClass(obj.statusConcluido) + "' onclick='toggleDropdown(" + obj.id + ")' type='button' id='dropdownMenuButton-" + obj.id + "' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>" +
                 (obj.statusConcluido ? "Concluído" : "A fazer") +
                 "</button>" +
@@ -40,9 +43,11 @@
                 "<button class='dropdown-item' onclick='editarStatus(" + obj.id + ", false)'>A fazer</button>" +
                 "</div>" +
                 "</div></td>" +
-                "<td><button class='btn btn-danger' onclick='excluirTarefa(" + obj.id + ")'>Excluir</button></td>" +
+                "<td id='coluna-excluir' onclick='excluirTarefa(" + obj.id + ")'><i class='fas fa-trash-alt' id='botao-excluir'></i></td>" +
                 "</tr>";
             document.getElementById("corpo-tabela").innerHTML += row;
+
+            numeroIndice++;
         });
     }
 
@@ -200,5 +205,14 @@
         margin-top: 30px;
         margin-block-end: 5px;
     }
+
+    #coluna-excluir, #coluna-status, #titulo-status, #titulo-excluir {
+        text-align : center;
+    }
+
+    #coluna-excluir:hover {
+        color: red;
+    }
+
 
 </style>

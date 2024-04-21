@@ -1,4 +1,5 @@
 using CheckList.Infrastructure;
+using CheckList.Infrastructure.MySql;
 using CheckList.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -20,11 +21,12 @@ namespace CheckList.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult ObterQtdTarefas([FromServices] TarefaRepository tarefa)
         {
-            return View();
+            var qtdTarefas = tarefa.ObterTodas().Count();
+            return Json(qtdTarefas);
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
