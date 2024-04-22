@@ -12,6 +12,7 @@ Para iniciar o projeto, será necessário criar o banco de dados e para isso voc
 
 2. Rode o script abaixo para criar diretamente no banco de dados:
 
+```sql
 CREATE DATABASE checklist_teste;
 USE checklist_teste;
 
@@ -23,6 +24,7 @@ CREATE TABLE Tarefa (
 
 INSERT INTO Tarefa (Nome, StatusConcluido) VALUES ('Exemplo de tarefa concluída', true);
 INSERT INTO Tarefa (Nome, StatusConcluido) VALUES ('Exemplo de tarefa a fazer', false);
+```
 
 **Solução 2**
 
