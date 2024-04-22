@@ -18,12 +18,12 @@ USE checklist_teste;
 
 CREATE TABLE Tarefa (
     Id INT PRIMARY KEY AUTO_INCREMENT,
-    Nome VARCHAR(255),
+    Descricao VARCHAR(255),
     StatusConcluido BOOLEAN
 );
 
-INSERT INTO Tarefa (Nome, StatusConcluido) VALUES ('Exemplo de tarefa concluída', true);
-INSERT INTO Tarefa (Nome, StatusConcluido) VALUES ('Exemplo de tarefa a fazer', false);
+INSERT INTO Tarefa (Descricao, StatusConcluido) VALUES ('Exemplo de tarefa concluída', true);
+INSERT INTO Tarefa (Descricao, StatusConcluido) VALUES ('Exemplo de tarefa a fazer', false);
 ```
 
 **Solução 2**
