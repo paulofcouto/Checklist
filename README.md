@@ -1,16 +1,20 @@
-**Projeto com CRUD básico com conexão ao banco de dados MySql.**
+# Projeto com CRUD básico com conexão ao banco de dados MySql
 
 Para iniciar o projeto, será necessário criar o banco de dados e para isso você pode utilizar duas formas:
 
 **Solução 1**
 
-1. Crie uma banco de dados utilizando os seguintes paramêtros
-   - server: localhost
-   - port: 4040
-   - user: root
-   - password: 123456
+1. Acessando a conexão com os seguintes paramêtros:
+ 
+- server: localhost
+ - port: 4040
+ - user: root
+ - password: 123456
 
-2. Rode o script abaixo para criar diretamente no banco de dados:
+![image](https://github.com/paulofcouto/Checklist/assets/22281160/be6b9b60-4a18-4c4a-b039-e9a940d794d0)
+
+
+2. Rode o script abaixo para criar o banco de dados:
 
 ```sql
 CREATE DATABASE checklist_teste;
