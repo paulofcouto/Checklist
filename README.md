@@ -30,7 +30,16 @@ INSERT INTO Tarefa (Descricao, StatusConcluido) VALUES ('Exemplo de tarefa concl
 INSERT INTO Tarefa (Descricao, StatusConcluido) VALUES ('Exemplo de tarefa a fazer', false);
 ```
 
+
 **Solução 2**
 
 Abra o projeto no visual studio, clique em 'Tools' > 'NuGet Package Manager' > 'Package Manager Console'.
 No console que se abriu, digite o comando 'Update-Database', os arquivos de configuração, irão criar todas as configurações necessárias para iniciar o projeto.
+
+
+**Solução 3**
+
+Utilizando o Docker, abra um terminal na pasta raiz do projeto e execute o comando
+ ```bash
+ docker-compose up --build.
+ ```
