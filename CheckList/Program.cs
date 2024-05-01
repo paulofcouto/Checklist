@@ -1,6 +1,7 @@
 using CheckList.Application.Services;
 using CheckList.Infrastructure.MySql;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,7 +36,12 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-
+var pathToScripts = Path.Combine(app.Environment.ContentRootPath, "Scripts");
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(pathToScripts),
+    RequestPath = "/Scripts"
+});
 
 app.MapControllerRoute(
     name: "default",
