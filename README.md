@@ -43,3 +43,5 @@ Utilizando o Docker, abra um terminal na pasta raiz do projeto e execute o coman
  ```bash
  docker-compose up --build.
  ```
+Após a construção e inicialização dos serviços, abra o seguinte endereço em seu navegador: ``http://localhost:8080``. Isso permitirá que você visualize o projeto em execução.
+Certifique-se de que a porta 8080 esteja disponível e não esteja sendo usada por outro serviço em sua máquina.
