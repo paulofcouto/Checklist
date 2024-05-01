@@ -1,0 +1,35 @@
+version: '3.1'
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: checklist_teste
+    ports:
+      - "3306"
+   
+  migration:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app/CheckList
+    command: ["dotnet", "ef", "database", "update"]
+    environment:
+      - ConnectionStrings__MySql=server=db; port=3306; database=checklist_teste; user=root; password=123456; Persist Security Info=False; Connect Timeout=300
+    depends_on:
+      - db
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app/CheckList
+    entrypoint: ["dotnet", "run", "."]
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development      
+      - ConnectionStrings__MySql=server=db; port=3306; database=checklist_teste; user=root; password=123456; Persist Security Info=False; Connect Timeout=300
+    depends_on:
+      - db      
+    ports:
+      - 8080:5034
